@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*** - Linker</title>
+    <link rel="stylesheet" href="/linker/style.css">
+</head>
+<body>
+    <form>
+        <div class="step1">
+            <h1 style="color: #6c5ce7;">Olá!</h1>
+            <h2>Para adicionar um ***, você precisa encontrar o numero de identificação, que está embaixo dele, e digita-lo abaixo:</h2>
+            <input type="number" class="id" placeholder="Numero do ***" value="999999999">
+            <input type="button" value="Adicionar" class="button">
+        </div>
+        <div class="step2a invisible">
+            <h1>Mais uma etapa...</h1>
+            <h2>Escolha uma senha (forte) para este ***, para evitar que pessoas mal intencionadas acessem ele!</h2>
+            <input type="password" class="pass" placeholder="Invente uma senha">
+            <input type="button" value="Prosseguir" class="button">
+        </div>
+        <div class="step2b invisible">
+            <h1>Quase lá...</h1>
+            <h2>Este *** tem uma senha, por isso, você terá que digita-la para acessar este ***...</h2>
+            <input type="password" class="pass" placeholder="Digite a senha">
+            <input type="button" value="Prosseguir" class="button">
+        </div>
+        <div class="step3 invisible">
+            <h1>Ultimos retoques!</h1>
+            <h2>Este é o seu novo ***! Mas antes de acabar, obviamente precisamos de um nome para ele, não é?</h2>
+            <input type="text" class="name" placeholder="Crie um nome">
+            <input type="button" value="Prosseguir" class="button">
+        </div>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/linker/script.js"></script>
+</body>
+</html>

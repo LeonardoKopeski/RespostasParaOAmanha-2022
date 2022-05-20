@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+::-webkit-input-placeholder {
+    text-align: start;
+}
+
+:-moz-placeholder {
+    text-align: start;
+}
+form{
+    text-align: center;
+    width: calc(100vw - 10vh);
+    max-width: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3vh;
+}
+div.invisible{
+    display: none
+}
+form h1{
+    font-weight: 700;
+    margin-bottom: 5vh;
+}
+form h2{
+    font-weight: 400;
+    margin-bottom: 10vh;
+}
+form input{
+    width: 80%;
+    padding: 2vh;
+    font-size: 3vh;
+    border-radius: 2vh;
+    margin-top: 4vh;
+    border: .05vh #b2bec3 solid;
+    text-align: center;
+}
+form input[type=button]{
+    border: none;
+    background-color: #b2bec3;
+    transition: all .35s;
+}
+form input[type=button].activated{
+    background-color: #6c5ce7;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 500px){
+    form{
+        width: calc(100vw - 8vh);
+    }
+    form input{
+        width: 100%;
+        font-size: 5vw;
+    }
+    form{
+        text-align: start;
+    }
+    form h1{
+        margin-bottom: 8vh;
+    }
+    form h2{
+        font-weight: 300;
+        margin-bottom: 10vh;
+    }
+}
