@@ -13,14 +13,6 @@ const io = new Server(http)
 
 // Devices
 app.use(express.static("../_Web"))
-app.get("/", (req, res)=>{
-    dbDevices.device.createDevice({
-        idNumber: "999999999",
-        password: null,
-        name: "Device_18427"
-    })
-    res.send("ok")
-})
 
 // Socket.io
 io.on('connection', (socket) => {
@@ -77,7 +69,7 @@ io.on('connection', (socket) => {
         }
 
         if(device[0].password === obj.password){
-            socket.emit("linker/checkPassword/response", {status: 200})
+            socket.emit("linker/checkPassword/response", {status: 200, fingerprint: device[0].fingerprint})
         }else{
             socket.emit("linker/checkPassword/response", {status: 403})
         }
@@ -99,10 +91,20 @@ io.on('connection', (socket) => {
         }
 
         device[0].update({name: obj.name})
-        socket.emit("linker/setName/response", {status: "ok"})
+        socket.emit("linker/setName/response", {status: "ok", fingerprint: device[0].fingerprint})
     })
-    socket.on("disconnect", ()=>{
-        console.log("disconnect "+socket.id)
+    socket.on("dashboard/getInfo", async(obj)=>{
+        if(typeof obj !== "object"){return}
+
+        const query = {fingerprint: obj.fingerprint}
+        const device = await getDevice(query)
+        
+        if(device[0]){
+            socket.emit("dashboard/getInfo/response",{
+                name: device[0].name,
+                idNumber: device[0].idNumber
+            })  
+        }
     })
 })
 

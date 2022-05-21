@@ -82,11 +82,17 @@ button2b.addEventListener("click",async()=>{
         password: await sha256(input2b.value)
     })
 })
-socket.on("linker/checkPassword/response", ({status})=>{
-    if(status !== 200){
+socket.on("linker/checkPassword/response", (res)=>{
+    if(res.status !== 200){
         alert("Senha incorreta!")
     }else{
-        alert("End")
+        var cookie = getCookie("connections")
+        var newCookie = cookie === ""? [] : JSON.parse(cookie)
+        if(newCookie.indexOf(res.fingerprint) === -1){
+            newCookie.push(res.fingerprint)
+        }
+        setCookie("connections", JSON.stringify(newCookie), 365)
+        open("/dashboard", "_SELF")
     }
 })
 
@@ -114,7 +120,14 @@ button3.addEventListener("click",()=>{
 })
 socket.on("linker/setName/response", (res)=>{
     if(res.error){return}
-    alert("end")
+
+    var cookie = getCookie("connections")
+    var newCookie = cookie === ""? [] : JSON.parse(cookie)
+    if(newCookie.indexOf(res.fingerprint) === -1){
+        newCookie.push(res.fingerprint)
+    }
+    setCookie("connections", JSON.stringify(newCookie), 365)
+    open("/dashboard", "_SELF")
 })
 
 // Step Change
