@@ -3,6 +3,7 @@ import httpServer from "http"
 import {Server} from "socket.io"
 import shajs from 'sha.js'
 import fs from "fs"
+import say from "say"
 import * as dbDevices from "./libraries/devices.js"
 
 // Libraries
@@ -111,6 +112,8 @@ io.on('connection', (socket) => {
 // Listen to the port
 const PORT = process.env.PORT || 18018
 http.listen(PORT, () => {
+    //say.speak("I'm sorry, Dave.")
+    say.getInstalledVoices(console.log)
     console.log(`listening on port: ${PORT}`)
 
     dbDevices.setSchema({
