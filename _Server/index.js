@@ -112,8 +112,21 @@ io.on('connection', (socket) => {
 // Listen to the port
 const PORT = process.env.PORT || 18018
 http.listen(PORT, () => {
-    //say.speak("I'm sorry, Dave.")
-    say.getInstalledVoices(console.log)
+    say.export(`'Oh sim, uma creche ou um castelo
+
+    guardado por um dragão
+    
+    Você nunca entenderia.
+    
+    Não é o pai dela!
+    
+    É tão bom ter a família
+    
+    reunida para o jantar.
+    
+    - Harold!
+    
+    - Shrek!'`, 'Microsoft Daniel Desktop', 1.75, "audio.mp3")
     console.log(`listening on port: ${PORT}`)
 
     dbDevices.setSchema({
