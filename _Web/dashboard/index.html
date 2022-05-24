@@ -13,31 +13,35 @@
     </div>
     <div class="main">
         <header>
-            <h1>Devices</h1>
+            <i class="fa-solid fa-arrow-left" onclick="setMenu('root', 'Comandos')" title="Retornar"></i>
+            <h1>***</h1>
             <h2>Comandos</h2>
         </header>
-        <ul>
-            <li>
-                <i class="fa-solid fa-music"></i>
-                <h2>Tocar musica</h2>
-            </li>
-            <li>
+        <ul class="root">
+            <li onclick="setMenu('voiceMessage', 'Mensagem de voz')">
                 <i class="fa-solid fa-microphone-lines"></i>
                 <h2>Mensagem de voz</h2>
             </li>
-            <li>
+            <li onclick="setMenu('voiceMessage', 'Musica')">
+                <i class="fa-solid fa-music"></i>
+                <h2>Tocar musica</h2>
+            </li>
+            <li onclick="setMenu('voiceMessage', 'Alarme')">
                 <i class="fa-solid fa-clock"></i>
                 <h2>Alarme</h2>
             </li>
-            <li>
+            <li onclick="setMenu('voiceMessage', 'Temporizador')">
                 <i class="fa-solid fa-hourglass"></i>
                 <h2>Temporizador</h2>
             </li>
-            <li>
+            <li onclick="setMenu('voiceMessage', 'Leitor')">
                 <i class="fa-solid fa-comment"></i>
                 <h2>Ler texto</h2>
             </li>
         </ul>
+        <div class="voiceMessage invisible">
+
+        </div>
     </div>
     <script src="https://kit.fontawesome.com/24515b9b16.js" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
