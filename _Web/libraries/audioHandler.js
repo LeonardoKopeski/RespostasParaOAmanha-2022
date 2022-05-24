@@ -10,7 +10,7 @@ async function audioHandler(callback){
     }
 
     mediaRecorder.onstop = async function (ev) {
-        let audioData = new Blob(dataArray, { 'type': 'audio/mp3;' })
+        let audioData = new Blob(dataArray, { 'type': 'audio/wav;' })
         let audioBuffer = await audioData.arrayBuffer()
         callback(audioBuffer)
 

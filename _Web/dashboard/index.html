@@ -5,9 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>*** - Dashboard</title>
+    <link rel="stylesheet" href="/dashboard/style.css">
 </head>
 <body>
-    <audio></audio>
+    <div class="loading invisible">
+        <div class="spinner"></div>
+    </div>
+    <div class="main">
+        <header>
+            <h1>Devices</h1>
+            <h2>Comandos</h2>
+        </header>
+        <ul>
+            <li>
+                <i class="fa-solid fa-music"></i>
+                <h2>Tocar musica</h2>
+            </li>
+            <li>
+                <i class="fa-solid fa-microphone-lines"></i>
+                <h2>Mensagem de voz</h2>
+            </li>
+            <li>
+                <i class="fa-solid fa-clock"></i>
+                <h2>Alarme</h2>
+            </li>
+            <li>
+                <i class="fa-solid fa-hourglass"></i>
+                <h2>Temporizador</h2>
+            </li>
+            <li>
+                <i class="fa-solid fa-comment"></i>
+                <h2>Ler texto</h2>
+            </li>
+        </ul>
+    </div>
+    <script src="https://kit.fontawesome.com/24515b9b16.js" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/libraries/cookies.js"></script>
     <script src="/libraries/audioHandler.js"></script>

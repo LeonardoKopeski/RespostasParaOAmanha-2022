@@ -12,9 +12,3 @@ if(cookie !== ""){
 socket.on("dashboard/getInfo/response",(obj)=>{
 })
 
-// Record Audio
-audioHandler(console.log).then((stop)=>{
-    setTimeout(()=>{
-        stop()
-    }, 1000)
-})

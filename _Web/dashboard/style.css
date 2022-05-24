@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
+@keyframes spin {
+    from {transform: translate(-50%, -50%) rotate(0deg);}
+    to {transform: translate(-50%, -50%) rotate(360deg);}
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: #dfe6e9;
+}
+
+.spinner{
+    border: 2vh solid #6c5ce7;
+    border-top-color: transparent;
+    border-radius: 50%;
+    width: 20vh;
+    height: 20vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin infinite .75s linear;
+}
+
+.main header{
+    height: 15vh;
+    border-bottom: .5vh solid #b2bec3;
+    text-align: center;
+    background-color: #dfe6e9;
+}
+
+.main header h1{
+    color: #6c5ce7;
+    margin-top: 3vh;
+    font-size: 7vh;
+}
+
+.main header h2{
+    color: #636e72;
+    transform: translateX(5vh);
+}
+
+.main ul{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 180vh;
+    max-height: 100vh;
+    padding: 20vh 0vh;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 5vh;
+    z-index: -1;
+}
+
+.main ul li{
+    width: 25vh;
+    cursor: pointer;
+}
+
+.main ul li h2{
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.main ul li svg{
+    height: 10vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.invisible {
+    display: none
+}
