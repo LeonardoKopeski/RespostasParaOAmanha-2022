@@ -1,4 +1,4 @@
-async function audioHandler(){
+async function audioHandler(callback){
     const mediaStreamObj = await navigator.mediaDevices.getUserMedia({audio: true})
 
     const mediaRecorder = new MediaRecorder(mediaStreamObj)
@@ -9,14 +9,12 @@ async function audioHandler(){
         dataArray.push(ev.data)
     }
 
-    mediaRecorder.onstop = function (ev) {
+    mediaRecorder.onstop = async function (ev) {
         let audioData = new Blob(dataArray, { 'type': 'audio/mp3;' })
-        console.log(dataArray, audioData)
+        let audioBuffer = await audioData.arrayBuffer()
+        callback(audioBuffer)
 
         dataArray = []
-        //let audioSrc = window.URL.createObjectURL(audioData);
-        //playAudio.src = audioSrc;
-        //console.log(audioSrc, )
     }
 
     return ()=> mediaRecorder.stop()

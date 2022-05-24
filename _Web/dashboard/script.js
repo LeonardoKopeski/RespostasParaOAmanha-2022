@@ -13,8 +13,8 @@ socket.on("dashboard/getInfo/response",(obj)=>{
 })
 
 // Record Audio
-audioHandler().then((stop)=>{
+audioHandler(console.log).then((stop)=>{
     setTimeout(()=>{
         stop()
-    }, 3000)
+    }, 1000)
 })

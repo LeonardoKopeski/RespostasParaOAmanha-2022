@@ -122,4 +122,8 @@ http.listen(PORT, () => {
     })
     dbDevices.startDB("DB_DEVICES")
     
+    //synthesize({
+    //    speed: 2.5,
+    //    text: "Alarme definido para daqui a 37 minutos!"
+    //}).then(console.log)
 })
