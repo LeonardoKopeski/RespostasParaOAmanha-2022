@@ -8,41 +8,28 @@
     <link rel="stylesheet" href="/dashboard/style.css">
 </head>
 <body>
-    <div class="loading invisible">
-        <div class="spinner"></div>
+    <header>
+        <h1>Devices</h1>
+        <input type="search" class="searchBox" placeholder="O que você quer fazer?">
+    </header>
+    <div class="left">
+        <h2>Lorem ipsum dolor sit amet cose tetur elit</h2>
+        <h3>Lorem ipsum dolor sit amet cose tetur elit. Veritatis esse deserunt optio vero, non, repudiandae laboriosam totam animi.</h3>
+        <button class="highlight">Adicionar um ***</button>
+        <button>Acessar o manual</button>
     </div>
-    <div class="main">
-        <header>
-            <i class="fa-solid fa-arrow-left" onclick="setMenu('root', 'Comandos')" title="Retornar"></i>
-            <h1>***</h1>
-            <h2>Comandos</h2>
-        </header>
-        <ul class="root">
-            <li onclick="setMenu('voiceMessage', 'Mensagem de voz')">
-                <i class="fa-solid fa-microphone-lines"></i>
-                <h2>Mensagem de voz</h2>
-            </li>
-            <li onclick="setMenu('voiceMessage', 'Musica')">
-                <i class="fa-solid fa-music"></i>
-                <h2>Tocar musica</h2>
-            </li>
-            <li onclick="setMenu('voiceMessage', 'Alarme')">
-                <i class="fa-solid fa-clock"></i>
-                <h2>Alarme</h2>
-            </li>
-            <li onclick="setMenu('voiceMessage', 'Temporizador')">
-                <i class="fa-solid fa-hourglass"></i>
-                <h2>Temporizador</h2>
-            </li>
-            <li onclick="setMenu('voiceMessage', 'Leitor')">
-                <i class="fa-solid fa-comment"></i>
-                <h2>Ler texto</h2>
-            </li>
+    <div class="right">
+        <i class="fa-solid fa-robot"></i>
+        <h2>Lorem ipsum dolor sit amet cose tetur elit</h2>
+        <ul class="pages">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
-        <div class="voiceMessage invisible">
-
-        </div>
     </div>
+
     <script src="https://kit.fontawesome.com/24515b9b16.js" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/libraries/cookies.js"></script>
