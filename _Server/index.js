@@ -57,7 +57,8 @@ io.on('connection', (socket) => {
             return
         }
 
-        device[0].update({password: obj.password})
+        let securityPass = dbDevices.device.generateToken(32)
+        device[0].update({password: obj.password, securityPass: securityPass})
         socket.emit("linker/setPassword/response", {status: "ok"})
     })
     socket.on("linker/checkPassword", async(obj)=>{
@@ -70,7 +71,7 @@ io.on('connection', (socket) => {
         }
 
         if(device[0].password === obj.password){
-            socket.emit("linker/checkPassword/response", {status: 200, fingerprint: device[0].fingerprint})
+            socket.emit("linker/checkPassword/response", {status: 200, securityPass: device[0].securityPass})
         }else{
             socket.emit("linker/checkPassword/response", {status: 403})
         }
@@ -92,12 +93,12 @@ io.on('connection', (socket) => {
         }
 
         device[0].update({name: obj.name})
-        socket.emit("linker/setName/response", {status: "ok", fingerprint: device[0].fingerprint})
+        socket.emit("linker/setName/response", {status: "ok", securityPass: device[0].securityPass})
     })
     socket.on("dashboard/getInfo", async(obj)=>{
         if(typeof obj !== "object"){return}
 
-        const query = {fingerprint: obj.fingerprint}
+        const query = {securityPass: obj.securityPass}
         const device = await getDevice(query)
         
         if(device[0]){
@@ -118,7 +119,8 @@ http.listen(PORT, () => {
         idNumber: String,
         password: String,
         name: String,
-        fingerprint: String
+        fingerprint: String,
+        securityPass: String
     })
     dbDevices.startDB("DB_DEVICES")
     

@@ -6,11 +6,15 @@ var fingerprint
 const input1 = document.querySelector("form div.step1 input.id")
 const button1 = document.querySelector("form div.step1 input.button")
 input1.addEventListener("keyup",(ev)=>{
-    if(input1.value.length !== 9){
+    let realValue = input1.value.replaceAll(" ","")
+
+    input1.value = realValue.match(/.{1,3}/g).join(" ")
+
+    if(realValue.length !== 9){
         button1.classList.remove("activated")
         return
     }
-    if(parseInt(input1.value) != input1.value){
+    if(parseInt(realValue) != realValue){
         button1.classList.remove("activated")
         return
     }
@@ -20,8 +24,10 @@ input1.addEventListener("keyup",(ev)=>{
     }
 })
 button1.addEventListener("click",()=>{
+    let realValue = input1.value.replaceAll(" ","")
+
     if(button1.classList.contains("activated")){
-        socket.emit("linker/checkId", {id: input1.value})
+        socket.emit("linker/checkId", {id: realValue})
     }
 })
 socket.on("linker/checkId/response", (res)=>{
@@ -29,6 +35,7 @@ socket.on("linker/checkId/response", (res)=>{
         alert("*** não encontrado!")
         return
     }
+    input1.value = input1.value.replaceAll(" ", "")
     fingerprint = res.fingerprint
     changeStep(!res.hasPassword? "step2a": "step2b")
 })
@@ -88,8 +95,8 @@ socket.on("linker/checkPassword/response", (res)=>{
     }else{
         var cookie = getCookie("connections")
         var newCookie = cookie === ""? [] : JSON.parse(cookie)
-        if(newCookie.indexOf(res.fingerprint) === -1){
-            newCookie.push(res.fingerprint)
+        if(newCookie.indexOf(res.securityPass) === -1){
+            newCookie.push(res.securityPass)
         }
         setCookie("connections", JSON.stringify(newCookie), 365)
         open("/dashboard", "_SELF")
@@ -123,8 +130,8 @@ socket.on("linker/setName/response", (res)=>{
 
     var cookie = getCookie("connections")
     var newCookie = cookie === ""? [] : JSON.parse(cookie)
-    if(newCookie.indexOf(res.fingerprint) === -1){
-        newCookie.push(res.fingerprint)
+    if(newCookie.indexOf(res.securityPass) === -1){
+        newCookie.push(res.securityPass)
     }
     setCookie("connections", JSON.stringify(newCookie), 365)
     open("/dashboard", "_SELF")

@@ -1,5 +1,5 @@
 // Socket.io
-const socket = io()
+//const socket = io()
 
 // Search Box
 var searches = {
