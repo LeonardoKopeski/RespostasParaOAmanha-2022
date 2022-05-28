@@ -12,10 +12,13 @@
         <h1>Devices</h1>
         <input type="search" class="searchBox" placeholder="O que você quer fazer?">
     </header>
+    <div class="searchSuggestions invisible">
+        <ul></ul>
+    </div>
     <div class="left">
         <h2>Lorem ipsum dolor sit amet cose tetur elit</h2>
         <h3>Lorem ipsum dolor sit amet cose tetur elit. Veritatis esse deserunt optio vero, non, repudiandae laboriosam totam animi.</h3>
-        <button class="highlight">Adicionar um ***</button>
+        <button onClick="openUrl('/linker')" class="highlight">Adicionar um ***</button>
         <button>Acessar o manual</button>
     </div>
     <div class="right">
@@ -32,8 +35,7 @@
 
     <script src="https://kit.fontawesome.com/24515b9b16.js" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/libraries/cookies.js"></script>
-    <script src="/libraries/audioHandler.js"></script>
+    <script src="/dashboard/search.js"></script>
     <script src="/dashboard/script.js"></script>
 </body>
 </html>
